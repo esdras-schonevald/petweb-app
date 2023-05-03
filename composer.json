@@ -1,0 +1,22 @@
+{
+  "name": "petweb/app",
+  "authors": [
+    {
+      "name": "Esdras Schonevald",
+      "email": "esdraschonevald@gmail.com"
+    },
+    {
+      "name": "Rogério G. Rodrigues",
+      "email": "rogonrodrigues@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Petweb\\": "src/"
+    }
+  },
+  "require": {
+    "twig/twig": "^3.5",
+    "phprise/routing": "v0.1.2-alpha"
+  }
+}

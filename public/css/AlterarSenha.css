@@ -1,0 +1,257 @@
+body{
+background-color: rgb(255, 255, 255);
+height: 1024px;
+width: 1440px;
+
+margin:auto;
+
+    font-family: Patua One;
+    src: url(/assets/fonts/Patua_One/PatuaOne-Regular.ttf);
+
+}
+@font-face
+{
+    font-family: Patua One;
+    src: url(/assets/fonts/Patua_One/PatuaOne-Regular.ttf);
+}
+
+.menu {
+    height: 1024px;
+    width: 560px;
+    background: #F29100;
+    float: left;
+     
+}
+
+
+.BtSenha{
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 39px;
+    color: #ffffff;
+    background: #F29100;
+    
+    height: 50px;
+    width: 200px;
+    border: 3px solid #FFFFFF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 16px;
+}
+
+.BtBanhoTosa{
+    background-color: Transparent;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+    border-radius: 16px;
+}
+
+.menu1 {
+    height: 220px;
+    width: 100%;
+    float: left;
+    background: white;
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 49px;
+    color: rgb(255, 255, 255);
+
+}
+
+.img{
+    background-color: #F29100;
+    height: 100%;
+    width:  280px;
+    text-align: center;
+    float: left;
+    
+    
+}
+.NomePerfil{
+    background-color: #F29100;
+    height: 100%;
+    width:  280px;
+    float: left;
+    text-align:left;
+    padding-top: 70px;
+}
+
+.menu2 {
+    height: 450px;
+    width: 100%;
+    background: #F29100;
+    float: left;
+
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #ffffff;
+    text-align:left;
+    list-style: none;
+}
+
+.menu3 {
+    height: 300px;
+    width: 100%;
+    background: #F29100;
+    float: left;
+
+
+}
+.menu3-1{
+    background: #F29100;
+    height: 150px;
+    width: 560px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+   
+
+}
+.menu3-2{
+    height: 150px;
+    width: 560px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    
+    
+}
+
+.cabecalho {
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 67px;
+    color: #F29100;
+    text-align: center;
+    padding-top: 20px;
+    
+}
+
+.main {
+    height: 100%;
+    width:100%;
+    background-color: white;
+
+}
+
+.rodape { 
+    background-color: rgb(204, 203, 255);
+
+}
+
+.BtIMG{
+    
+    color: #ffffff;
+    background: white;
+    height: 215px;
+    width: 215px;
+    
+    border: 3px solid #FFFFFF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 50%;
+    padding-left: 5px;
+    padding-top: 6px;
+}
+
+
+.menu2 a{
+    text-decoration:none;
+    color: white;
+    display: block;
+    padding: 20px;
+    vertical-align: middle;
+   
+   }
+
+.menu2 a:hover{
+
+    color:gray;
+}
+
+.BtEntrar{
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 39px;
+    color: #ffffff;
+    background: #F29100;
+    
+    height: 50px;
+    width: 200px;
+    border: 3px solid #FFFFFF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+input{
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 39px;
+
+    height: 35px;
+    width: 550px;
+    background: #F1F1F1;
+    border: 4px solid #DEDADA;
+    border-radius: 10px;
+    
+}
+
+.F1{
+    background-color: transparent;
+    height: 100%;
+    width:  200px;
+    float: left;
+
+}
+.Formulario{
+    font-family: 'Patua One';
+    font-style: normal;
+    font-size: 20px;
+
+}
+
+.desc{
+    background-color: transparent;
+    height: 200px;
+    width:  100%;
+    font-family: 'Patua One';
+    font-style: normal;
+    font-size: 35px;
+
+}
+
+.BtCadastro{
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 39px;
+    color: #F29100;
+    background: #ffffff;
+    
+    height: 50px;
+    width: 200px;
+    border: 3px solid #F29100;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 16px;
+    align-items: center;
+    margin-left: 200px;
+}
+
+
+

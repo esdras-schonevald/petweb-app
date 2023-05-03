@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Página de Cadastro</title>
+</head>
+
+<body>
+	<h1>Página de Cadastro</h1>
+
+	{% for cadastro in data %}
+		<p>
+			nome:
+			{{ cadastro.nome }}
+			idade:
+			{{ cadastro.idade }}
+			endereco:
+			{{ cadastro.endereco }}
+		</p>
+	{% endfor %}
+</body></body>

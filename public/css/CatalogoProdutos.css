@@ -1,0 +1,222 @@
+body{
+background-color: rgb(255, 255, 255);
+height: 1024px;
+width: 1440px;
+margin:auto;
+
+}
+
+*{
+    margin: 0px;
+    padding: 0pt;
+}
+
+.MenuLateral {
+    height: 1024px;
+    width: 220px;
+    background: #F29100;
+    float: left;
+     
+}
+
+
+.menu1 {
+    height: 220px;
+    width: 100%;
+    float: left;
+    background: white;
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 49px;
+    color: black;
+    text-align: center;  
+
+}
+
+.MenuH{
+    list-style: none;
+}
+
+.MenuH li{
+    display: inline;
+    
+}
+
+.MenuSuperior a{
+    padding: 20px;
+    text-decoration:none;
+    color: white;
+}
+
+.MenuSuperior a:hover{
+
+    color:gray;
+}
+
+.menu2 {
+    height: 300px;
+    width: 100%;
+    background: #F29100;
+    float: left;
+
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: #ffffff;
+    text-align:left;
+
+}
+
+.BtIMG{
+    
+    color: #ffffff;
+    background: white;
+    height: 170px;
+    width: 170px;
+    
+    border: 3px solid #FFFFFF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 50%;
+}
+
+imput[type="checkbox"]{
+    display: none;
+    
+}
+
+.menu2 a{
+    text-decoration:none;
+    color: white;
+    display: block;
+    padding: 20px;
+    vertical-align: middle;
+   
+   }
+
+.menu2 a:hover{
+
+    color:gray;
+}
+
+.cabecalho {
+    height: 120px;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Patua One';
+    font-style: normal;
+    font-size: 55px;
+    color: #F29100;
+    text-align: center;
+}
+
+.BarraPesquisa {
+    height: 70%;
+    background-color: rgb(255, 255, 255);
+
+
+
+}
+
+.MenuSuperior {
+    height: 30%;
+    font-family: 'Patua One';
+    background-color: #25AB53;
+    font-style: normal;
+    font-size: 25px;
+    color: white;
+}
+
+.txtBusca{
+    background-color:transparent;
+    font-style:italic;
+    font-size:20px;
+    height: 30px;
+
+    border:solid 1px;
+    border-radius:15px;
+    width:700px;
+}
+
+.main {
+    height: 100%;
+    width: 84%;
+    background-color: white;
+
+
+    max-height: 1000px;
+    overflow-y: scroll;
+
+
+}
+
+.main Button{
+        
+        font-family: 'Patua One';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 27px;
+        line-height: 40px;
+        align-self: center;
+        height: 320px;
+        width: 220px;
+        background: #F1F1F1;
+        border: 4px solid #DEDADA;
+        border-radius: 10px;
+        margin: 10px;
+    
+}
+
+.P1{
+    background-color: transparent;
+    height: 350px;
+    width:  235px;
+    float: left;
+}
+
+.rodape { 
+    background-color: transparent;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main Button:hover{
+	
+    border: 4px solid transparent;
+    filter: drop-shadow(0px 0px 4px  #F29100);
+}
+
+.menu2 a:hover{
+
+    color:gray;
+}
+
+.BtVoltar{
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 39px;
+    color: #ffffff;
+    background: #F29100;
+    
+    height: 50px;
+    width: 150px;
+    border: 3px solid #FFFFFF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
