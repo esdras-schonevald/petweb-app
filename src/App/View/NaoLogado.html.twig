@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Inicial </title>
-    <link rel="stylesheet" href="css/PG-Inicial-Nao-Logado.css">
-   
-</head>
-<body>
-    <div class="menu">
-        <div class="menu1">
-            <br> Bem Vindo de Volta!<br>
-            <input type="text" placeholder="E-Mail">
-            <br>
-            <input type="password" placeholder="Senha">
-            <br><br><button class="BtEntrar">Entrar</button>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Pagina Inicial
+		</title>
+		<link rel="stylesheet" href="css/PG-Inicial-Nao-Logado.css">
 
-        </div>
-        <div class="menu2">
-            <br>Ainda Não Sou Cadastrado.
-            <br><br><button class="BtCadastrar">Cadastrar</button>
-        </div>
-        <div class="menu3">
-            <br>Esqueci Minha Senha.
-            <br><br><button class="BtSenha">Nova Senha</button>
-        </div>
-    </div>
-    <div class="cabecalho">
-        Produtos e Serviços
-    </div>
+	</head>
+	<body>
+		<div class="menu">
+			<div class="menu1">
+				<br>
+				Bem Vindo de Volta!<br>
+				<form action="/login" method="POST">
+					<input type="email" name="email" placeholder="E-Mail">
+					<br>
+					<input type="password" name="password" placeholder="Senha">
+					<br><br><button type="submit" class="BtEntrar">Entrar</button>
+				</form>
 
-    <div class="main">
-        <div class="ret01" style="text-align:center;">
-            <button class="BtBanhoTosa"><img src="img/1.png" height ="430" width="330" /></button>
-        </div>
-        <div class="ret02" style="text-align:center;">
-            <button class="BtBanhoTosa"><img src="img/2.png" height ="430" width="330" /></button>
-        </div>
-        <div class="ret03" style="text-align:center;">
-            <button class="BtBanhoTosa"><img src="img/3.png" height ="430" width="330" /></button>
-        </div>
-        <div class="ret04" style="text-align:center;">
-            <button class="BtBanhoTosa"><img src="img/4.png" height ="430" width="330" /></button>
-        </div>
-    </div>
-   
-    <div class="rodape">
-        rodape
-    </div>
-    
-</body>
+			</div>
+			<div class="menu2">
+				<br>Ainda Não Sou Cadastrado.
+				<br><br><button class="BtCadastrar">Cadastrar</button>
+			</div>
+			<div class="menu3">
+				<br>Esqueci Minha Senha.
+				<br><br><button class="BtSenha">Nova Senha</button>
+			</div>
+		</div>
+		<div class="cabecalho">
+			Produtos e Serviços
+		</div>
+
+		<div class="main">
+			<div class="ret01" style="text-align:center;">
+				<button class="BtBanhoTosa"><img src="img/1.png" height="430" width="330"/></button>
+			</div>
+			<div class="ret02" style="text-align:center;">
+				<button class="BtBanhoTosa"><img src="img/2.png" height="430" width="330"/></button>
+			</div>
+			<div class="ret03" style="text-align:center;">
+				<button class="BtBanhoTosa"><img src="img/3.png" height="430" width="330"/></button>
+			</div>
+			<div class="ret04" style="text-align:center;">
+				<button class="BtBanhoTosa"><img src="img/4.png" height="430" width="330"/></button>
+			</div>
+		</div>
+
+		<div class="rodape">
+			rodape
+		</div>
+		{% include 'components/notification/notification.html.twig' %}
+	</body>
 </html>

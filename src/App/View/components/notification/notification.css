@@ -1,0 +1,12 @@
+.notification
+{
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    left: 10%;
+    right: 10%;
+    min-height: 100px;
+    border-radius: 1em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5), -5px -5px 10px rgba(255, 255, 255, 0.5);
+    padding: 20px;
+}
