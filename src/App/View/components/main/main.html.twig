@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		{% block head %}
+			<!-- HEAD -->
+			<meta charset="UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<title>PetWeb
+				{% block title %}{% endblock %}
+			</title>
+
+			<style>
+				{% block style %}
+					/** Style */
+					{% block global_css %}
+						/** CSS Global */
+						{{include('components/main/main.css')}}
+					{% endblock %}
+
+					{% block page_css %}
+						/** CSS Página */
+					{% endblock %}
+
+					{% block override_css %}
+						/** Sobrescrita de CSS */
+						{{include('components/main/main-desktop.css')}}
+						{{include('components/main/main-mobile.css')}}
+						{{include('components/main/icons.css')}}
+					{% endblock %}
+				{% endblock %}
+			</style>
+		{% endblock %}
+	</head>
+
+	<body class="container">
+		{% block body %}
+		<!-- BODY -->
+		{% block content %}<!-- CONTENT -->{% endblock %}
+
+		<script>
+			{% block script %}
+/** Script */
+{% block global_js %}
+/** JS Global */
+{{ include('components/main/main.js') }}
+{% endblock %}
+
+{% block page_js %}
+/** JS Pagina */
+{% endblock %}
+
+{% block override_js %}
+/** Sobrescrita de JS */
+{% endblock %}{% endblock %}
+		</script>
+	{% endblock %}
+</body></html>

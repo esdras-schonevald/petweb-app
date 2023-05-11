@@ -11,6 +11,6 @@ class Controller
         $loader     =   new \Twig\Loader\FilesystemLoader('App/View', dirname(__DIR__));
         $twig       =   new \Twig\Environment($loader);
 
-        echo $twig->render($name, $context);
+        echo $twig->render($name . '/' . strtolower($name) . '.html.twig', $context);
     }
 }

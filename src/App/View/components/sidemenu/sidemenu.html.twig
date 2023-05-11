@@ -1,0 +1,22 @@
+{% macro sidemenu(logged) %}
+	<div class="menu">
+		<div class="menu1">
+			<br>
+			Bem Vindo de Volta!<br>
+			<form action="/login" method="POST">
+				<input type="email" name="email" placeholder="E-Mail">
+				<br>
+				<input type="password" name="password" placeholder="Senha">
+				<br><br><button type="submit" class="BtEntrar">Entrar</button>
+			</form>
+
+		</div>
+		<div class="menu2">
+			<br>Ainda Não Sou Cadastrado.
+			<br><br><button class="BtCadastrar">Cadastrar</button>
+		</div>
+		<div class="menu3">
+			<br>Esqueci Minha Senha.
+			<br><br><button class="BtSenha">Nova Senha</button>
+		</div>
+	</div>

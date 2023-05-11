@@ -7,6 +7,12 @@ namespace Petweb\App\Controller;
 use Petweb\App\Model\Login;
 use Petweb\Core\Controller;
 use Petweb\Core\Session;
+use Petweb\Domain\Notification\ErrorNotification;
+use Petweb\Domain\Notification\InfoNotification;
+use Petweb\Domain\Notification\SuccessNotification;
+use Petweb\Domain\Notification\ValueObject\Message;
+use Petweb\Domain\Notification\ValueObject\Title;
+use Petweb\Domain\Notification\WarningNotification;
 use Phprise\Routing\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,7 +24,7 @@ class HomeController extends Controller
         $session = new Session();
 
         if (!$session->isValid()) {
-            return $this->render('NaoLogado.html.twig');
+            return $this->render('Home');
         }
 
         $this->render('Logado.html.twig');
@@ -32,12 +38,19 @@ class HomeController extends Controller
         $password   =   $request->request->filter('password', filter: FILTER_CALLBACK, options: ['options' => fn ($pass) => md5(sha1($pass))]);
 
         $login = new Login($email, $password);
+
         if (!$login->validate()) {
-            echo "<h1>Usuário e/ou senha inválidos</h1><p>email: $email</p><p>pass: $password</p>";
-            return $this->render('NaoLogado.html.twig');
+            return $this->render('Home', [
+                'notifications' => [
+                    new InfoNotification(
+                        message: new Message('Voce está logado!'),
+                        title: new Title('Yup!')
+                    )
+                ]
+            ]);
         }
 
-        $this->render('Logado.html.twig');
+        $this->render('Logado');
 
         var_dump(['email' => $email, 'password' => $password]);
     }

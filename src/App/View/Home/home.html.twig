@@ -1,0 +1,78 @@
+{% import "components/notifications.twig" as notification %}
+
+{% extends "components/main/main.html.twig" %}
+
+{% block title %}
+	Inicio
+{% endblock %}
+
+{% block page_css %}
+	{% include "Home/home.css" %}
+{% endblock %}
+
+{% block content %}
+	<div class="menu">
+		<div class="menu1">
+			<br>
+			Bem Vindo de Volta!<br>
+			<form action="/login" method="POST">
+				<input type="email" name="email" placeholder="E-Mail">
+				<br>
+				<input type="password" name="password" placeholder="Senha">
+				<br><br><button type="submit" class="BtEntrar">Entrar</button>
+			</form>
+
+		</div>
+		<div class="menu2">
+			<br>Ainda Não Sou Cadastrado.
+			<br><br><button class="BtCadastrar">Cadastrar</button>
+		</div>
+		<div class="menu3">
+			<br>Esqueci Minha Senha.
+			<br><br><button class="BtSenha">Nova Senha</button>
+		</div>
+	</div>
+	<div class="cabecalho">
+		Produtos e Serviços
+	</div>
+
+	<div class="main">
+		<div class="ret01" style="text-align:center;">
+			<button class="BtBanhoTosa"><img src="img/1.png" height="430" width="330"/></button>
+		</div>
+		<div class="ret02" style="text-align:center;">
+			<button class="BtBanhoTosa"><img src="img/2.png" height="430" width="330"/></button>
+		</div>
+		<div class="ret03" style="text-align:center;">
+			<button class="BtBanhoTosa"><img src="img/3.png" height="430" width="330"/></button>
+		</div>
+		<div class="ret04" style="text-align:center;">
+			<button class="BtBanhoTosa"><img src="img/4.png" height="430" width="330"/></button>
+		</div>
+	</div>
+
+	<div class="rodape">
+		rodape
+	</div>
+	{% if notifications %}
+		{% for notify in notifications %}
+			{% if notify.getType == 'Success' %}
+				{{ notification.success(notify.getMessage(), notify.getTitle()) }}
+			{% endif %}
+
+			{% if notify.getType == 'Error' %}
+				{{ notification.error(notify.getMessage(), notify.getTitle()) }}
+			{% endif %}
+
+			{% if notify.getType == 'Warning' %}
+				{{ notification.warning(notify.getMessage(), notify.getTitle()) }}
+			{% endif %}
+
+			{% if notify.getType == 'Info' %}
+				{{ notification.info(notify.getMessage(), notify.getTitle()) }}
+			{% endif %}
+
+		{% endfor %}
+	{% endif %}
+
+{% endblock %}
