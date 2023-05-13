@@ -31,4 +31,19 @@ class Session
     {
         $_SESSION[$key] = $value;
     }
+
+    function getStatus(): int
+    {
+        return session_status();
+    }
+
+    function getId()
+    {
+        return session_id();
+    }
+
+    function destroy()
+    {
+        return session_destroy();
+    }
 }

@@ -1,22 +1,69 @@
 {% macro sidemenu(logged) %}
-	<div class="menu">
-		<div class="menu1">
-			<br>
-			Bem Vindo de Volta!<br>
-			<form action="/login" method="POST">
-				<input type="email" name="email" placeholder="E-Mail">
-				<br>
-				<input type="password" name="password" placeholder="Senha">
-				<br><br><button type="submit" class="BtEntrar">Entrar</button>
-			</form>
+	{% if logged %}
+		<link rel="stylesheet" href="css/PG-Inicial-Logado.css">
+		<div class="menu">
+			<div class="menu1">
+				<div class="img">
+					<button id="BtIMG"><img id="foto" src="img/JuliaDaSilva.png" height="200" width="200"/></button>
+				</div>
+				<div class="NomePerfil">
+					<label id="lbl">Julia Da Silva</label>
+				</div>
 
+			</div>
+
+			<nav class="menu2">
+				<ul style="list-style-type: none;">
+					<li>
+						<a href=""><img id="image1" src="img/AlterarSenha.png   " width="50px" height="50px">
+							Alterar Senha</a>
+					</li>
+					<li>
+						<a href=""><img id="image2" src="img/EditarCadastro.png   " width="50px" height="50px">
+							Editar Cadastro</a>
+					</li>
+					<li>
+						<a href=""><img id="image3" src="img/CadastrarPet.png  " width="50px" height="50px">
+							Cadastrar Pet</a>
+					</li>
+					<li>
+						<a href=""><img id="image4" src="img/CadastrarPagamento.png  " width="50px" height="50px">Cadastrar Meio de Pagamento</a>
+					</li>
+
+				</ul>
+
+			</nav>
+			<div class="menu3">
+				<div class="menu3-1">
+					<button class="BtEntrar">Sair</button>
+				</div>
+				<div class="menu3-2">
+					<img id="image5" src="img/Pet.png" width="200px" height="200px">
+				</div>
+
+			</div>
 		</div>
-		<div class="menu2">
-			<br>Ainda Não Sou Cadastrado.
-			<br><br><button class="BtCadastrar">Cadastrar</button>
+	{% else %}
+		<div class="menu">
+			<div class="menu1">
+				<br>
+				Bem Vindo de Volta!<br>
+				<form action="/login" method="POST">
+					<input type="email" name="email" placeholder="E-Mail">
+					<br>
+					<input type="password" name="password" placeholder="Senha">
+					<br><br><button type="submit" class="BtEntrar">Entrar</button>
+				</form>
+
+			</div>
+			<div class="menu2">
+				<br>Ainda Não Sou Cadastrado.
+				<br><br><button class="BtCadastrar">Cadastrar</button>
+			</div>
+			<div class="menu3">
+				<br>Esqueci Minha Senha.
+				<br><br><button class="BtSenha">Nova Senha</button>
+			</div>
 		</div>
-		<div class="menu3">
-			<br>Esqueci Minha Senha.
-			<br><br><button class="BtSenha">Nova Senha</button>
-		</div>
-	</div>
+	{% endif %}
+{% endmacro %}

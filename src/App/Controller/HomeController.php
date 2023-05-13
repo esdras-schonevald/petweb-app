@@ -50,7 +50,7 @@ class HomeController extends Controller
             ]);
         }
 
-        $this->render('Logado');
+        $this->render('Logado', ['logged' => true]);
 
         var_dump(['email' => $email, 'password' => $password]);
     }
