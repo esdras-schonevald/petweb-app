@@ -4,28 +4,42 @@ declare(strict_types=1);
 
 namespace Petweb\App\Model;
 
+use Petweb\App\Model\Mock\UserMock;
+use Petweb\Domain\Collection\UserCollection;
+use Petweb\Domain\Entity\User;
+use Petweb\Domain\ValueObject\Email;
+use Petweb\Domain\ValueObject\Password;
+
 class Login
 {
-    public const MOCK = [
-        0 => ['email' => 'esdraschonevald@gmail.com', 'password' => 'e23b27413823ea92e0098ce7581022b0'],
-        1 => ['email' => 'esdras@gmail.com', 'password' => 'd93a5def7511da3d0f2d171d9c344e91'],
-        2 => ['email' => 'rogerio@gmail.com', 'password' => 'd93a5def7511da3d0f2d171d9c344e91']
-    ];
-
     function __construct(
-        private string $email,
-        private string $password
+        private Email $email,
+        private Password $password
     ) {
     }
 
     function validate(): bool
     {
-        $user = ['email' => $this->email, 'password' => $this->password];
-
-        if (!in_array($user, Login::MOCK)) {
+        $user = $this->getUser();
+        if (empty($user) || $user->password != $this->password) {
             return false;
         }
 
         return true;
+    }
+
+    function getUser(): ?User
+    {
+        $users  =   $this->getUsers();
+        $user   =   $users->filterByEmail($this->email);
+
+        return $user;
+    }
+
+    private function getUsers(): UserCollection
+    {
+        $users = UserMock::getCollection();
+
+        return $users;
     }
 }

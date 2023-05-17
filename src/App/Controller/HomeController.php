@@ -13,6 +13,8 @@ use Petweb\Domain\Notification\SuccessNotification;
 use Petweb\Domain\Notification\ValueObject\Message;
 use Petweb\Domain\Notification\ValueObject\Title;
 use Petweb\Domain\Notification\WarningNotification;
+use Petweb\Domain\ValueObject\Email;
+use Petweb\Domain\ValueObject\Password;
 use Phprise\Routing\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -37,20 +39,23 @@ class HomeController extends Controller
         $email      =   $request->request->filter('email', filter: FILTER_VALIDATE_EMAIL);
         $password   =   $request->request->filter('password', filter: FILTER_CALLBACK, options: ['options' => fn ($pass) => md5(sha1($pass))]);
 
-        $login = new Login($email, $password);
+        $login = new Login(
+            new Email($email),
+            new Password($password)
+        );
 
         if (!$login->validate()) {
             return $this->render('Home', [
                 'notifications' => [
-                    new InfoNotification(
-                        message: new Message('Voce está logado!'),
-                        title: new Title('Yup!')
+                    new ErrorNotification(
+                        message: new Message('Usuário e senha inválidos!'),
+                        title: new Title('Ish man!')
                     )
                 ]
             ]);
         }
 
-        $this->render('Logado', ['logged' => true]);
+        $this->render('Logado', ['user' => $login->getUser()]);
 
         var_dump(['email' => $email, 'password' => $password]);
     }
