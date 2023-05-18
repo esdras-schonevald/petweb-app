@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Pet </title>
+    <link rel="stylesheet" href="css/CadastrarPet.css">
+   
+</head>
+<body>
+
+
+    <div class="menu">
+        <div class="menu1">
+            <div class="img">
+                <button class="BtIMG"><img id="foto"src="img/JuliaDaSilva.png" height ="200" width="200" /></button>
+            </div>
+            <div class="NomePerfil"><label id="lbl">Julia Da Silva</label>
+				
+            </div>
+        
+        </div>
+
+        <nav class="menu2">
+            <ul style="list-style-type: none;" >
+                <li><a href=""><img id="image0" src="img/AlterarSenha.png   " width="50px" height="50px"> Alterar Senha</a></li>
+                <li> <a href=""><img id="image2" src="img/EditarCadastro.png   " width="50px" height="50px">  Editar Cadastro</a></li>
+                <li> <a href=""><img id="image3" src="img/CadastrarPet.png  " width="50px" height="50px"> Cadastrar Pet</a></li>
+                <li> <a href=""><img id="image4" src="img/CadastrarPagamento.png  " width="50px" height="50px">Cadastrar Meio de Pagamento</a></li>
+                
+            </ul>
+        
+        </nav>
+        <div class="menu3">
+            <div class="menu3-1">
+                <button class="BtEntrar">Sair</button>
+            </div>
+            <div class="menu3-2">
+                <img id="image1" src="img/Pet.png" width="200px" height="200px">
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="cabecalho">
+        Cadastrar Pets
+    </div>
+
+    <div class="main">
+        <div class="F1">
+
+        </div>
+        <div id="F2">
+            <!--div class="desc" -->
+                <form class="desc">
+                    <label for="pets">Pets Cadastrados:</label><br> 
+                    <select name="estados" class="Pets">
+                        {% for pet in pets %}
+                        <option value="{{ pet.nome }}">{{ pet.nome|capitalize }}, {{ pet.cor |capitalize }}, {{ pet.sexo |capitalize }}</option>
+                        {% endfor %}
+
+                    </select>
+                </form>
+
+            <!--/div -->
+            <form class="Formulario" action = "/registrarpet" method="POST">
+
+                <label>Nome:&ensp; &ensp;</label> <input type="text" name ="nome" class="maior"><br>
+                <br><label>Especie :&ensp;</label> <input type="text" name ="especie" class="menor">&ensp; &ensp;&ensp;
+                <label>Raça: &ensp; &ensp;</label> <input type="text" name ="raca" class="menor"><br>
+                <br><label>Cor:&ensp; &ensp;&ensp;</label> <input type="text" name ="cor" class="maior"><br>
+                <br><label>Sexo:&ensp; &ensp;</label> <input type="text" name ="sexo" class="maior"><br>
+                <br><label>Idade:&ensp; &ensp;</label> <input type="text" name ="idade" class="maior"><br>
+                <br><label>Castrado :&ensp;&ensp;</label><input name="castrado" type="checkbox" >&ensp; &ensp;
+
+
+                <br><button class="BtCadastro" type = "submit" >Confirmar</button>
+            
+            </form>
+        </div>
+
+    </div>
+
+
+   
+    <!--div class="rodape">
+        rodape
+    </div -->
+	
+	
+    
+</body>
+</html>

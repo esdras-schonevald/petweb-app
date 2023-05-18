@@ -196,7 +196,7 @@ margin:auto;
 
 
 
-input[id=maior] {
+input[class=maior] {
     font-family: 'Patua One';
     font-style: normal;
     font-weight: 400;
@@ -210,7 +210,7 @@ input[id=maior] {
     
 }
 
-input[id=menor] {
+input[class=menor] {
     font-family: 'Patua One';
     font-style: normal;
     font-weight: 400;
