@@ -27,7 +27,7 @@ final class UserMock
             ),
 
             new User(
-                name: new Name('Rogerio Rodrígues'),
+                name: new Name('Rogerio Rodrigues'),
                 email: new Email('rogonrodrigues@gmail.com'),
                 password: new Password('d93a5def7511da3d0f2d171d9c344e91'),
                 image: new ImageSource('/img/photo-perfil-rogerio.png')

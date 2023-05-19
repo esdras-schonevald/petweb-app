@@ -55,7 +55,11 @@ class HomeController extends Controller
             ]);
         }
 
-        $this->render('Logado', ['user' => $login->getUser()]);
+        $session = new Session();
+        $user = $login->getUser();
+        $session -> set('user', $user );
+
+        $this->render('Logado', ['user' => $user]);
 
         var_dump(['email' => $email, 'password' => $password]);
     }
