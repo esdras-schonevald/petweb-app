@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="css/CadastroCliente.css">
+   
+</head>
+<body>
+    <div class ="menu">
+        <div c="menu1">
+             Imagem do Perfil <br>
+            <button class="BtIMG"><img src="img/58.png" height ="150" width="150" /></button>
+            <br><button class="BtEntrar">Importar</button>
+
+        </div>
+       
+        <div class="menu3">
+            <br>Quero me Cadastrar Depois
+            <br><br><a class="BtVoltar" href="/">Voltar</a>
+        </div>
+    </div>
+    <div class="cabecalho">
+        Meu Cadastro
+    </div>
+
+    <div class="main">
+        <div class="F1">
+        
+
+
+        </div>
+        <div class="F2">
+            <form class="Formulario" action = '/cadastrocliente/enviar' method="POST">
+                <label>Nome Completo:</label> <br><input required type="text" name="name">
+                <br><label>RG:</label> <br> <input required type="text" name="rg">
+                <br><label>CPF:</label><br> <input required type="text" name="cpf">
+                <br><label>Senha:</label><br> <input required type="text" name="senha">
+                <br><label>Confirmar Senha:</label><br> <input required type="text">
+                <br><label>Telefone:</label> <br> <input required type="text" name="fone">
+                <br><label>E-mail:</label> <br> <input required type="text" name="email"><br><br>
+                <br><label>Endereço:</label> <br> <input required type="text" name="address">
+                <br><label>Bairro:</label><br> <input required type="text" name="bairro">
+                <br><label>Cidade:</label> <br> <input required type="text" name="cidade">
+                <br><label>Estado:</label><br> <inpu required type="text" name="estado">
+                <br><label>CEP:</label><br> <input required type="text" name="cep" ><br><br>
+                <br><button class="BtCadastro" type="submit">Cadastrar</button>
+            
+            </form>
+        </div>
+    </div>
+   
+    <!--div class="rodape">
+        rodape
+    </div -->
+    
+</body>
+</html>
