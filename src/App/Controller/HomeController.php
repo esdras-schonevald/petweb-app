@@ -101,4 +101,21 @@ class HomeController extends Controller
 
         header('location: /');
     }
+
+      #[Route('/notification/{error}/{number}')]
+    public function notification()
+    {
+        $error = new ErrorNotification(
+            message: new Message('Página não enontrada!'),
+            title: new Title('Ish man!')
+        );
+
+        $session = new Session();
+
+        if (!$session->isValid()) {
+            return $this->render('Home', ['notifications' => [$error]]);
+        }
+
+        $this->render('Home', ['notifications' => [$error]]);
+    }
 }

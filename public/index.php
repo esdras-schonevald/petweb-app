@@ -11,8 +11,18 @@ $config = RouterConfiguration::createFromAttributes(__DIR__ . '/../src/App/Contr
 
 $router = new SimpleRouter($config);
 
+<<<<<<< HEAD
 try {
     $router->execute();
 } catch (Throwable $error) {
     header('location: /notification/error/404');
+=======
+try{
+$router->execute();
+
+}catch(Throwable $error){
+
+    header('location: ' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . '/notification/error/505');
+        
+>>>>>>> 5092702617516a6164a6eb7649d719be2ff12cff
 }
