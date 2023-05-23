@@ -15,7 +15,7 @@ class Session
 
     function isValid(): bool
     {
-        return !empty($_SESSION['email']);
+        return !empty($_SESSION['user']);
     }
 
     function get(string $key)
@@ -24,12 +24,12 @@ class Session
             return null;
         }
 
-        return $_SESSION[$key];
+        return unserialize($_SESSION[$key]);
     }
 
     function set(string $key, mixed $value): void
     {
-        $_SESSION[$key] = $value;
+        $_SESSION[$key] = serialize($value);
     }
 
     function getStatus(): int

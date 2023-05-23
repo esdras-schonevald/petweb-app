@@ -16,9 +16,18 @@ class Password implements \Stringable
         }
     }
 
+    public static function create(string $password)
+    {
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/', $password)) {
+            throw new ValueObjectException('Password must contain between 8 and 12 characters including uppercase, lowercase, numbers and special characters');
+        }
+
+        return new self(md5(sha1($password)));
+    }
+
     public function __toString(): string
     {
-        return md5(sha1($this->password));
+        return $this->password;
     }
 
     protected function isValid(): bool

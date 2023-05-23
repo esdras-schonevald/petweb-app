@@ -44,3 +44,10 @@
     background-color: darkblue;
     color: #F1FFF1;
 }
+
+.notification-img
+{
+    width: 50px;
+    float: right;
+    margin: 30px;
+}

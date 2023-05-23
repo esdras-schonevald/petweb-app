@@ -1,51 +1,51 @@
 {% macro success(message, title = "Yup") %}
 	<div class="notification success">
-		<img width="25px" src="/img/success.png" style="float: left; margin: 10px;">
+		<button class="btn-close" onclick="this.parentElement.remove()"></button>
 		<div style="float: left;">
 			<div class="title">
 				{{ title }}
 			</div>
 			<div class="message">{{ message }}</div>
 		</div>
-		<button class="btn-close" onclick="this.parentElement.remove()"></button>
+		<img class="notification-img" src="/img/success.png">
 	</div>
 {% endmacro %}
 
 {% macro error(message, title = "Oops! Algo errado não está certo.") %}
 	<div class="notification error">
-		<img width="25px" src="/img/error.png" style="float: left; margin: 10px;">
+		<button class="btn-close" onclick="this.parentElement.remove()"></button>
 		<div style="float: left;">
 			<div class="title">
 				{{ title }}
 			</div>
 			<div class="message">{{ message }}</div>
 		</div>
-		<button class="btn-close" onclick="this.parentElement.remove()"></button>
+		<img class="notification-img" src="/img/error.png">
 	</div>
 {% endmacro %}
 
 {% macro warning(message, title = "Oops! Algo errado não está certo.") %}
 	<div class="notification warning">
-		<img width="25px" src="/img/warning.png" style="float: left; margin: 10px;">
+		<button class="btn-close" onclick="this.parentElement.remove()"></button>
 		<div style="float: left;">
 			<div class="title">
 				{{ title }}
 			</div>
 			<div class="message">{{ message }}</div>
 		</div>
-		<button class="btn-close" onclick="this.parentElement.remove()"></button>
+		<img class="notification-img" src="/img/warning.png">
 	</div>
 {% endmacro %}
 
 {% macro info(message, title = "Oops! Algo errado não está certo.") %}
 	<div class="notification info">
-		<img width="25px" src="/img/info.png" style="float: left; margin: 10px;">
+		<button class="btn-close" onclick="this.parentElement.remove()"></button>
 		<div style="float: left;">
 			<div class="title">
 				{{ title }}
 			</div>
 			<div class="message">{{ message }}</div>
 		</div>
-		<button class="btn-close" onclick="this.parentElement.remove()"></button>
+		<img class="notification-img" src="/img/info.png">
 	</div>
 {% endmacro %}
