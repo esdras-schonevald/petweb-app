@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		{% block head %}
+			<!-- HEAD -->
+			<title>PetWeb
+				{% block title %}{% endblock %}
+			</title>
+
+			<style>
+				{% block style %}
+					/** Style */
+					{% block global_css %}
+						/** CSS Global */
+						{{include('main/main.css')}}
+					{% endblock %}
+
+					{% block page_css %}
+						/** CSS Página */
+					{% endblock %}
+
+					{% block override_css %}
+						/** Sobrescrita de CSS */
+						{{include('main/main-desktop.css')}}
+						{{include('main/main-mobile.css')}}
+						{{include('main/icons.css')}}
+					{% endblock %}
+				{% endblock %}
+			</style>
+		{% endblock %}
+	</head>
+
+	<body class="container">
+		{% block body %}
+		<!-- BODY -->
+		{% block content %}<!-- CONTENT -->{% endblock %}
+
+		<script>
+			{% block script %}
+/** Script */
+{% block global_js %}
+/** JS Global */
+{{ include('main/main.js') }}
+{% endblock %}
+
+{% block page_js %}
+/** JS Pagina */
+{% endblock %}
+
+{% block override_js %}
+/** Sobrescrita de JS */
+{% endblock %}{% endblock %}
+		</script>
+	{% endblock %}
+</body></html>

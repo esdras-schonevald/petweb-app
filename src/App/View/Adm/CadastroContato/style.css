@@ -1,0 +1,244 @@
+/** tags **/
+h1, h2, h3, h4, h5, h6
+{
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    margin:5px;
+    padding:5px;
+}
+
+h1
+{
+    font-size: 40px;
+    line-height: 49px;
+}
+
+h2
+{
+    font-size: 36px;
+    line-height: 44px;
+}
+
+h3
+{
+    font-size: 32px;
+    line-height: 39px;
+}
+
+h4{
+    font-size: 28px;
+    line-height: 34px;
+}
+
+h5{
+    font-size: 24px;
+    line-height: 29px;
+}
+
+h6
+{
+    font-size: 20px;
+    line-height: 24px;
+}
+
+a
+{
+    font:unset;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+ul{
+    list-style-image: url(/assets/img/icon_chevron_right.png);
+    width: 263px;
+}
+
+ul li{
+    margin: 10px;
+    height: 48px;
+    height: -webkit-fill-available;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ccc;
+    display: inline flow-root list-item;
+}
+
+ul li.active {
+    list-style-image: url(/assets/img/icon_chevron_bottom_active.png);
+    color: #FFF;
+}
+
+ul li > ul li {
+    list-style-image: url(/assets/img/icon_media_record.png);
+    color: #CCC;
+    height: 24px;
+    width: 200px;
+}
+
+ul li.active > ul li.active {
+    list-style-image: url(/assets/img/icon_media_record_active.png);
+    color: #FFF;
+}
+
+/** classes **/
+.inp-default{
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF;
+    color: #F29100;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0px -4px 10px rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    border: 1px solid transparent;
+    margin-top: 1em;
+    text-indent: 6em;
+}
+
+.inp-default::placeholder{
+    color:#CCC;
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+}
+
+.inp-default:focus
+{
+    border: none;
+    outline: #F29100;
+    box-shadow: 0px 0px 10px #F29100;
+}
+
+.inp-default:invalid
+{
+    border: 2px solid #F29100;
+    box-shadow: 0px 0px 10px #F29100;
+}
+
+.inp-default:valid
+{
+    border: none;
+}
+
+.full-height
+{
+    height: 100%;
+}
+
+.row {
+    width: 100%;
+}
+
+.container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+.container-left
+{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-flow: wrap;
+    width: min-content;
+    height: min-content;
+}
+
+.btn-default
+{
+    width: 212px;
+    height: 51px;
+    color: #f29100;
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    border: 3px solid #F29100;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 16px;
+    margin: 1em;
+    float:right;
+}
+
+
+.btn-inverter
+{
+    width: 212px;
+    height: 51px;
+    color: #FFF;
+    font-family: 'Patua One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    border: 3px solid #FFF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 16px;
+    margin: 1em;
+    float:right;
+}
+
+.text-link
+{
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.fade
+{
+    position:   absolute;
+    top: 0px;
+    left: 0px;
+    bottom:0px;
+    right: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.modal
+{
+    border-radius: 16px;
+    background-color: #f1f1f1;
+}
+
+.radius-left
+{
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.radius-right
+{
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.header
+{
+    width: 100%;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}
+
+.body
+{
+    width: 100%;
+    min-height: 20vh;
+}
+
+.foot{
+    width: 100%;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+}

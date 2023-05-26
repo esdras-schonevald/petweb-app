@@ -1,0 +1,115 @@
+{% extends "main/template-default.html.twig" %}
+
+{% block title %}
+	Cadastro
+{% endblock %}
+
+{% block page_css %}
+	/** CSS Página */
+	{{ include('CadastroContato/style.css') }}
+{% endblock %}
+
+{% block content %}
+
+	{% block container_left %}
+		<!-- container left -->
+		<div class="col-lg-1 sm-hidden bg-color-1 container full-height"></div>
+		<div class="col-lg-2 sm-hidden bg-color-1 txt-color-1 container full-height">
+			<div class="container-left">
+				<h1>São somente alguns passos</h1>
+				<h6>O seu pet shop estará na web em menos de 5 minutos</h6>
+				<ul>
+					<li class="active">
+						Identifique-se
+						<ul>
+							<li class="active">Contato</li>
+							<li>Dados Pessoais</li>
+							<li>Endereço</li>
+						</ul>
+					</li>
+					<li>Conte-nos sobre o seu negócio</li>
+					<li>Como quer receber</li>
+					<li>Adicione mais itens</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-lg-1 sm-hidden bg-color-1 container full-height"></div>
+	{% endblock %}
+
+	{% block container_right %}
+		<!-- container right-->
+		<div class="col-lg-1 sm-hidden bg-color-2 container full-height"></div>
+		<div class="col-lg-6 col-sm-12 bg-color-2 txt-color-2 container full-height">
+			<div class="container-left col-lg-11 col-sm-11">
+				<h1 style="width: 400px">Preencha os dados de contato e login</h1>
+				<h6 style="width: 367px">
+					Precisamos desses dados para confirmar sua conta
+				</h6>
+
+				<form action="#" id="form_contato" method="post" enctype="application/x-www-form-urlencoded">
+					<input id="inp_name" class="inp-default inp-icon-person" placeholder="Nome" type="text" name="name" pattern="([\w]{2,45})(\s[\w]{2,45})+$" minlength="4" maxlength="255" title="Deve conter entre 4 a 255 letras sem acentuações, números ou caracteres especiais" required onkeyup="this.value = Mask.name(this.value);" onchange="this.value = Mask.name(this.value);"/>
+
+					<input id="inp_tel" class="inp-default inp-icon-phone" placeholder="Telefone" type="tel" name="tel" inputmode="tel" pattern="(\([0-9]{2}\))\s([9]{1})?([\s]{1})?([0-9]{4})-([0-9]{4})" minlength="10" maxlength="16" title="Digite apenas números" required onkeyup="this.value = Mask.phone(this.value);" onchange="this.value = Mask.phone(this.value);"/>
+
+					<input id="inp_email" class="inp-default inp-icon-env-closed" placeholder="Email" type="email" name="email" inputmode="email" pattern="([a-z0-9._%+-]{3,45})+@([a-z0-9.-]{3,45})+\.([a-z]{2,4})$" minlength="9" maxlength="255" title="Digite um email válido" required/>
+					<input id="inp_pass" class="inp-default inp-icon-key" placeholder="Senha" type="password" name="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" minlength="8" maxlength="12" title="A senha deve conter caracteres maiúsculos, minúsculos, números e símbolos" required/>
+
+					<input id="inp_confirm_pass" class="inp-default inp-icon-key" placeholder="Confirmar senha" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" minlength="8" maxlength="12" title="As senhas devem ser iguais" required onchange="
+																														                            if (this.value != document.querySelector('#inp_pass').value){
+																														                                this.value = '';
+																														                            }
+																														                        "/>
+
+					<button class="btn-default" type="submit">CONTINUAR</button>
+				</form>
+			</div>
+		</div>
+		<div class="col-lg-1 sm-hidden bg-color-2 container full-height"></div>
+	{% endblock %}
+
+	{% block modal_email %}
+		<!-- Modal verificação de email -->
+		<div class="fade container">
+			<div class="modal col-lg-8 col-sm-11">
+				<div class="col-lg-8 col-sm-8 container bg-color-2 txt-color-2 full-height radius-left">
+					<div class="container-left col-lg-10 col-sm-11">
+						<div class="header">
+							<h1 id="textHeader">{{ textHeader }}</h1>
+						</div>
+						<div class="body">
+							<h6 id="textBody">{{ textBody }}</h6>
+							<br/><br/>
+						</div>
+						<div class="foot">
+							<h1 id="textFooter">{{ textFooter }}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-4 container bg-color-1 txt-color-1 full-height radius-right">
+					<div class="container-left col-lg-11 col-sm-12">
+						<div class="header">
+							<h3>Se preferir, você pode fazer isso mais tarde</h3>
+						</div>
+						<div class="body">
+							<h6>
+								Mas lembre-se de que isso é necessário para mantermos a sua loja
+							</h6>
+						</div>
+						<div class="foot">
+							<a href="/adm/cadastro/dados-pessoais" class="btn-inverter text-link">
+								<u>Fazer isso mais tarde</u>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+
+{% endblock %}
+
+{% block page_js %}
+	{{ parent() }}
+	{{ include('CadastroContato/Mask.js') }}
+	{{ include('CadastroContato/page.js') }}
+{% endblock %}

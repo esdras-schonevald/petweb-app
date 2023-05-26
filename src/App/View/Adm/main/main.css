@@ -1,0 +1,40 @@
+/* fonts */
+@font-face
+{
+    font-family: Patua One;
+    src: url(/assets/fonts/Patua_One/PatuaOne-Regular.ttf);
+}
+
+/* general */
+*{
+    font-family: Patua One;
+}
+
+/* tags */
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* classes */
+.bg-color-1 {
+    background-color: #f29100;
+}
+
+.txt-color-1{
+    color: #f1f1f1;
+}
+
+.bg-color-2{
+    background-color: #f1f1f1;
+}
+
+.txt-color-2{
+    color:#f29100;
+}
+
+[   class          *=  "col-"      ]
+{   float:                  left;
+}

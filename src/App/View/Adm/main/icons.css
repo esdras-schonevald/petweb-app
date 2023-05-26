@@ -1,0 +1,53 @@
+/** general **/
+[ class *= inp-icon- ]
+{
+    background-repeat: no-repeat;
+    background-position-x: 3em;
+    background-position-y: center;
+}
+
+/** classes **/
+.inp-icon-person
+{
+    background-image: url(/assets/img/icon_person.png);
+}
+
+.inp-icon-phone
+{
+    background-image: url(/assets/img/icon_phone.png);
+}
+
+.inp-icon-env-closed
+{
+    background-image: url(/assets/img/icon_envelope_closed.png);
+}
+
+.inp-icon-key
+{
+    background-image: url(/assets/img/icon_key.png);
+}
+
+.inp-icon-cpf
+{
+    background-image: url(/assets/img/icon_credit_card.png);
+}
+
+.inp-icon-calendar
+{
+    background-image: url(/assets/img/icon_calendar.png);
+}
+
+.inp-icon-globe
+{
+    background-image: url(/assets/img/icon_globe.png);
+}
+
+.inp-icon-map
+{
+    background-image: url(/assets/img/icon_map.png);
+}
+
+.inp-icon-map-marker
+{
+    background-image: url(/assets/img/icon_map_marker.png);
+}

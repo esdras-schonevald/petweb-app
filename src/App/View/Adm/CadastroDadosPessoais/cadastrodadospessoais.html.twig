@@ -1,0 +1,107 @@
+{% extends "main/template-default.html.twig" %}
+
+{% block title %}
+	Cadastro
+{% endblock %}
+
+{% block page_css %}
+	/** CSS Página */
+	{{ include('CadastroDadosPessoais/style.css') }}
+{% endblock %}
+
+{% block content %}
+
+	{% block container_left %}
+		<!-- container left -->
+		<div class="col-lg-1 sm-hidden bg-color-1 container full-height"></div>
+		<div class="col-lg-2 sm-hidden bg-color-1 txt-color-1 container full-height">
+			<div class="container-left">
+				<h1>São somente alguns passos</h1>
+				<h6>O seu pet shop estará na web em menos de 5 minutos</h6>
+				<ul>
+					<li class="active">Identifique-se
+						<ul>
+							<li>Contato</li>
+							<li class="active">Dados Pessoais</li>
+							<li>Endereço</li>
+						</ul>
+					</li>
+					<li>Conte-nos sobre o seu negócio</li>
+					<li>Como quer receber</li>
+					<li>Adicione mais itens</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-lg-1 sm-hidden bg-color-1 container full-height"></div>
+	{% endblock container_left %}
+
+	{% block container_right %}
+		<!-- container right-->
+		<div class="col-lg-1 sm-hidden bg-color-2 container full-height"></div>
+		<div class="col-lg-6 col-sm-12 bg-color-2 txt-color-2 container full-height">
+			<div class="container-left col-lg-11 col-sm-11">
+				<h1 style="width: 400px">Agora precisamos de alguns dados seus</h1>
+				<h6 style="width: 367px">Fique tranquilo, esses dados estão protegidos e só você terá acesso</h6>
+
+				<form action="/adm/cadastro/dados-pessoais" id="form_dados_pessoais" method="post" enctype="application/x-www-form-urlencoded">
+
+					<input id="inp_cpf" class="inp-default inp-icon-cpf" placeholder="CPF" type="text" name="cpf" pattern="([\d]{3})\.([\d]{3})\.([\d]{3})-([\d]{2})$" minlength="11" maxlength="14" title="Digite apenas números" required onkeyup="this.value = Mask.cpf(this.value);" onchange="this.value = Mask.cpf(this.value);"/>
+
+					<input id="inp_birthdate" class="inp-default inp-icon-calendar" placeholder="Data de nascimento" type="text" name="birthdate" inputmode="text" pattern="([\d]{2})\/([\d]{2})\/([\d]{4})" minlength="10" maxlength="10" title="Digite uma data válida" required onkeyup="this.value = Mask.date(this.value)" onchange="this.vaue = Mask.date(this.value)"/>
+
+					<input id="inp_country" class="inp-default inp-icon-globe" placeholder="País de nascimento" type="text" name="country" inputmode="text" pattern="[\w\s]{2,255}" minlength="2" maxlength="255" title="Digite um país válido, apenas letras e espaços" required/>
+					<input id="inp_state" class="inp-default inp-icon-map" placeholder="Estado de nascimento" type="text" name="state" pattern="[\w\s]{2,255}" minlength="2" maxlength="255" title="Digite o seu estado de nascimento, apenas letras e espaços" required/>
+
+					<input id="inp_city" class="inp-default inp-icon-map-marker" placeholder="Cidade de nascimento" type="text" name="city" pattern="[\w\s]{2,255}" minlength="2" maxlength="255" title="Digite a sua cidade de nascimento, apenas letras e espaços" required/>
+
+					<button class="btn-default" type="submit">CONTINUAR</button>
+				</form>
+			</div>
+		</div>
+		<div class="col-lg-1 sm-hidden bg-color-2 container full-height"></div>
+	{% endblock container_right %}
+
+	{% block modal_email %}
+		<!-- Modal verificação de email -->
+		<div class="fade container">
+			<div class="modal col-lg-8 col-sm-11">
+				<div class="col-lg-8 col-sm-8 container bg-color-2 txt-color-2 full-height radius-left">
+					<div class="container-left col-lg-10 col-sm-11">
+						<div class="header">
+							<h1 id="textHeader">{{ textHeader }}</h1>
+						</div>
+						<div class="body">
+							<h6 id="textBody">{{ textBody }}</h6><br><br>
+						</div>
+						<div class="foot">
+							<h1 id="textFooter">{{ textFooter }}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-4 container bg-color-1 txt-color-1 full-height radius-right">
+					<div class="container-left col-lg-11 col-sm-12">
+						<div class="header">
+							<h3>Se preferir, você pode fazer isso mais tarde</h3>
+						</div>
+						<div class="body">
+							<h6>Mas lembre-se de que isso é necessário para mantermos a sua loja</h6>
+						</div>
+						<div class="foot">
+							<a href="#" class="btn-inverter text-link">
+								<u>Fazer isso mais tarde</u>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endblock modal_email %}
+
+{% endblock content %}
+
+{% block page_js %}
+	{{ parent() }}
+	{{ include('CadastroDadosPessoais/Mask.js') }}
+	{{ include('CadastroDadosPessoais/page.js') }}
+{% endblock page_js %}
