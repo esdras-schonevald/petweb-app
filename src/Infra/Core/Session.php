@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Petweb\Core;
+namespace Petweb\Infra\Core;
 
 class Session
 {
@@ -44,6 +44,10 @@ class Session
 
     function destroy()
     {
-        return session_destroy();
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', 0, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));
+        session_destroy();
+
+        return session_write_close();
     }
 }

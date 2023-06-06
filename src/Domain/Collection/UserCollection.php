@@ -8,7 +8,7 @@ use Petweb\Domain\Entity\User;
 use Petweb\Domain\ValueObject\Email;
 use Phprise\Common\Contract\Arrayable;
 
-class UserCollection implements \Iterator, \Countable, Arrayable
+class UserCollection implements \Iterator, \Countable, Arrayable, \JsonSerializable
 {
     use CollectionTemplate;
 
@@ -37,5 +37,25 @@ class UserCollection implements \Iterator, \Countable, Arrayable
     {
         $filter = array_filter($this->array, fn ($item) => $item->email == $email);
         return current($filter) ?? null;
+    }
+
+    public function toJson(): string
+    {
+        return json_encode($this);
+    }
+
+    public static function fromJson(string $json): self
+    {
+        $array      =   json_decode($json);
+        $users      =   array_map(fn ($obj) => User::fromJson(json_encode($obj)), $array);
+        $collection =   new self();
+        $collection->add(...$users);
+
+        return $collection;
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        return array_map(fn ($user) => $user->jsonSerialize(), $this->array);
     }
 }

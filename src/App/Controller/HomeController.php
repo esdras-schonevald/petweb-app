@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Petweb\App\Controller;
 
 use Petweb\App\Model\Login;
-use Petweb\Core\Controller;
-use Petweb\Core\Session;
 use Petweb\Domain\Notification\ErrorNotification;
 use Petweb\Domain\Notification\InfoNotification;
 use Petweb\Domain\Notification\SuccessNotification;
@@ -15,11 +13,31 @@ use Petweb\Domain\Notification\ValueObject\Title;
 use Petweb\Domain\Notification\WarningNotification;
 use Petweb\Domain\ValueObject\Email;
 use Petweb\Domain\ValueObject\Password;
+use Petweb\Infra\Core\Controller;
+use Petweb\Infra\Core\Session;
 use Phprise\Routing\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Controls the actions of home page
+ *
+ * @author Esdras Schonevald <esdraschonevald@gmail.com>
+ * @author Rogério Rodrigues <rogonrodrigues@gmail.com>
+ * @copyright 2023 Petweb
+ * [
+ *              ADIEL ESDRAS SCHONEVALD TOLENTINO,
+ *              ROGÉRIO GONÇALVES RODRIGRES,
+ *              LETÍCIA SANTOS OLIVEIRA,
+ *              AMANDA DRAVANETE
+ * ]
+ */
 class HomeController extends Controller
 {
+    /**
+     * The first one route in the system.
+     *
+     * @return void
+     */
     #[Route('/')]
     public function index()
     {
@@ -33,6 +51,12 @@ class HomeController extends Controller
     }
 
 
+    /**
+     * Responsible for login authentication
+     *
+     * @param Request $request Automticaly injected by routing component
+     * @return void
+     */
     #[Route('/login', ['POST'])]
     public function login(Request $request)
     {
@@ -62,6 +86,12 @@ class HomeController extends Controller
         $this->render('Home', ['user' => $user]);
     }
 
+    /**
+     * Send notifications to client based on error code
+     *
+     * @param Request $request Automaticaly provide by routing component
+     * @return void
+     */
     #[Route('/notification/{type}/{code}')]
     public function notification(Request $request)
     {
@@ -93,6 +123,11 @@ class HomeController extends Controller
         ]);
     }
 
+    /**
+     * Destroy the client session
+     *
+     * @return void
+     */
     #[Route('/logout')]
     public function logout()
     {

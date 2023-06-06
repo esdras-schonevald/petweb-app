@@ -17,6 +17,8 @@
   },
   "require": {
     "twig/twig": "^3.5",
-    "phprise/routing": "^0.1"
+    "phprise/routing": "^0.1",
+    "guzzlehttp/guzzle": "^7.7",
+    "vlucas/phpdotenv": "^5.5"
   }
 }
