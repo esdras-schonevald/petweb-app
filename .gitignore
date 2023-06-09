@@ -1,4 +1,6 @@
+/.vscode
+/var
 /vendor
 /composer.phar
-/var
 Tarefas.txt
+.env

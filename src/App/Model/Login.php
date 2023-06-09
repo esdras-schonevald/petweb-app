@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Petweb\App\Model;
 
+use GuzzleHttp\Client;
 use Petweb\App\Model\Mock\UserMock;
 use Petweb\Domain\Collection\UserCollection;
 use Petweb\Domain\Entity\User;
 use Petweb\Domain\ValueObject\Email;
 use Petweb\Domain\ValueObject\Password;
+use Petweb\Infra\Repository\UserRepository;
 
 class Login
 {
@@ -30,16 +32,19 @@ class Login
 
     function getUser(): ?User
     {
-        $users  =   $this->getUsers();
-        $user   =   $users->filterByEmail($this->email);
+        $httpClient =   new Client();
+        $repo       =   new UserRepository($httpClient);
+        $user       =   $repo->getByEmail($this->email);
 
         return $user;
     }
 
+    /**
     private function getUsers(): UserCollection
     {
         $users = UserMock::getCollection();
 
         return $users;
     }
+     */
 }
