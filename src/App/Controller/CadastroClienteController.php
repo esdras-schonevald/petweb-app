@@ -22,6 +22,10 @@ use Phprise\Routing\Route;
  */
 class CadastroClienteController extends Controller
 {
+    /**
+     *Access page for customer register 
+     * @return void
+     */
     #[Route('/cadastrocliente', ['GET'])]
     public function index(): void
     {
@@ -30,6 +34,12 @@ class CadastroClienteController extends Controller
         $this->render('CadastroCliente');
     }
 
+
+/**
+ *Route send the  customer register
+ * @param [type] $request
+ * @return void
+ */
     #[Route('/cadastrocliente/enviar', ['POST'])]
     public function enviar($request): void
     {

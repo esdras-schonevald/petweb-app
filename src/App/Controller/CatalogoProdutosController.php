@@ -22,6 +22,11 @@ use Phprise\Routing\Route;  #essa classe não mudar
  */
 class CatalogoProdutosController extends Controller
 {
+    /**
+     * This route access products list.
+     *
+     * @return void
+     */
     #[Route('/catalogoprodutos')]
     public function index(): void
     {
@@ -29,6 +34,12 @@ class CatalogoProdutosController extends Controller
         //$dados = $model->pets(); #a função pets veio da  classe CadastroPet
         $this->render('CatalogoProdutos'); #cadastrar past do diretorio
     }
+
+    /**
+     * This route access main page.
+     *
+     * @return void
+     */
     #[Route('/naologado')]
     public function naoLogado(): void
     {
