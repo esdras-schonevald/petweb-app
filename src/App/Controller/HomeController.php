@@ -47,7 +47,7 @@ class HomeController extends Controller
             return $this->render('Home');
         }
 
-        $this->render('Home', ['user' => $session->get('user')]);
+        $this->render('Home', ['user' => $session->getUser()]);
     }
 
 
@@ -81,46 +81,9 @@ class HomeController extends Controller
 
         $session = new Session();
         $user = $login->getUser();
-        $session->set('user', $user);
+        $session->setUser($user);
 
         $this->render('Home', ['user' => $user]);
-    }
-
-    /**
-     * Send notifications to client based on error code
-     *
-     * @param Request $request Automaticaly provide by routing component
-     * @return void
-     */
-    #[Route('/notification/{type}/{code}')]
-    public function notification(Request $request)
-    {
-        $type   =   $request->get('type');
-        $code   =   $request->get('code');
-
-        [$title, $message] = match ($code) {
-            '401'   => [new Title('Sessão expirada'), new Message('Realize o login novamente')],
-            '404'   => [new Title('Rota não encontrada'), new Message('Verifique se o caminho digitado é valido')],
-            default => [new Title('Ish man!'), new Message('Algo de errado não está certo')]
-        };
-
-        $notification = match ($type) {
-            'error'     =>  new ErrorNotification($message, $title),
-            'warn'      =>  new WarningNotification($message, $title),
-            'info'      =>  new InfoNotification($message, $title),
-            'success'   =>  new SuccessNotification($message, $title),
-            default     =>  new ErrorNotification($message, $title)
-        };
-
-        $session = new Session();
-        if (!$session->isValid()) {
-            return $this->render('Home', ['notifications' => [$notification]]);
-        }
-
-        return $this->render('Home', [
-            'notifications' => [$notification],
-            'user' => $session->get('user')
-        ]);
     }
 
     /**

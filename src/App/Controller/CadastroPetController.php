@@ -38,7 +38,7 @@ class CadastroPetController extends Controller
             header('location: /');
         }
 
-        $user = $session->get('user');
+        $user = $session->getUser();
 
         $model = new  CadastroPet();
         $dados = $model->pets(); #a função pets veio da  classe CadastroPet

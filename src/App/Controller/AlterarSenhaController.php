@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Petweb\App\Controller;
 
+use Petweb\App\Model\AlterarSenha;
 use Petweb\Domain\Notification\SuccessNotification;
 use Petweb\Domain\Notification\ValueObject\Message;
 use Petweb\Domain\Notification\ValueObject\Title;
@@ -41,7 +42,7 @@ class AlterarSenhaController extends Controller
             header('location: /notification/error/401');
         }
 
-        $this->render('AlterarSenha', ['user' => $session->get('user')]); //nome da pasta
+        $this->render('AlterarSenha', ['user' => $session->getUser()]); //nome da pasta
     }
 
     /**
@@ -53,18 +54,21 @@ class AlterarSenhaController extends Controller
     #[Route('/alterarsenha', ['POST'])]
     public function changePassword(Request $request)
     {
-        $oldPass =  new Password(
-            $request->request->filter('oldPassword', filter: FILTER_CALLBACK, options: [
-                'options' => fn ($pass) => md5(sha1($pass))
-            ])
-        );
-
-        $newPass =  Password::create($request->request->get('newPassword'));
-
         $session = new Session();
         if (!$session->isValid()) {
             header('location: /notification/error/401');
         }
+
+        $user       =   $session->getUser();
+        $oldPass    =   new Password(
+            $request->request->filter('oldPassword', filter: FILTER_CALLBACK, options: [
+                'options' => fn ($pass) => md5(sha1($pass))
+            ])
+        );
+        $newPass    =  Password::create($request->request->get('newPassword'));
+
+        $model      =  new AlterarSenha();
+        $model->changePassword($user, $oldPass, $newPass);
 
         $notification = new SuccessNotification(
             new Message('Senha atualizada com sucesso'),
@@ -72,7 +76,7 @@ class AlterarSenhaController extends Controller
         );
 
         return $this->render('AlterarSenha', [
-            'user' => $session->get('user'),
+            'user' => $session->getUser(),
             'notifications' => [$notification]
         ]);
     }

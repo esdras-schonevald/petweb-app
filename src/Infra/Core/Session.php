@@ -50,4 +50,21 @@ class Session
 
         return session_write_close();
     }
+
+    function __call(string $method, array $args): mixed
+    {
+        if (method_exists($this, $method)) {
+            return call_user_func([$this, $method], ...$args);
+        }
+
+        if (substr($method, 0, 3) == 'get') {
+            return call_user_func([$this, 'get'], lcfirst(substr($method, 3)));
+        }
+
+        if (substr($method, 0, 3) ==  'set') {
+            return call_user_func([$this, 'set'], lcfirst(substr($method, 3)), ...$args);
+        }
+
+        throw new \BadMethodCallException('Bad method call', 500);
+    }
 }
