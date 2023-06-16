@@ -46,7 +46,7 @@ class CPF implements \Stringable
         return $this->cpf;
     }
 
-    public function format()
+    public function format(): string|null
     {
         return preg_replace('/^([\d]{3})([\d]{3})([\d]{3})([\d]{2})$/', '$1.$2.$3-$4', $this->cpf);
     }

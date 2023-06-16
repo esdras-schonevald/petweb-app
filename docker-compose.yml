@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  application:
+    container_name: petweb-app
+    image: esdrasschonevald/php:8.2-dev
+    restart: always
+    ports:
+      - "${APPLICATION_PORT}:80"
+    volumes:
+      - ${APPLICATION_ROOT}:/var/www
+    env_file:
+      - .env
+    command: "php -S 127.0.0.1:80 -t public"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  default:
+    external:
+      name: api_default

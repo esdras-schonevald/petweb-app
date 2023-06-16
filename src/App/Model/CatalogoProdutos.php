@@ -6,7 +6,7 @@ namespace Petweb\App\Model;
 
 class CatalogoProdutos
 {
-    public function naoLogado()
+    public function naoLogado(): void
     {
         echo '<a href="src\App\View\NaoLogado" >Voltar<a>';
     }

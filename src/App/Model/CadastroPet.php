@@ -15,10 +15,14 @@ class CadastroPet
             ['nome' => 'Douradinho', 'sexo' => 'm', 'cor' => 'Dourado']
         ];
     }
-    public function cadastrarPet( $pet ): void
+
+    /**
+     * @psalm-param list{mixed, mixed, mixed, mixed, mixed, mixed, mixed} $pet
+     */
+    public function cadastrarPet(array $pet): void
     {
-        
-        
+
+
     }
 
 }

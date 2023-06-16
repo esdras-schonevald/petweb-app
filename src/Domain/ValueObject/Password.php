@@ -16,7 +16,7 @@ class Password implements \Stringable
         }
     }
 
-    public static function create(string $password)
+    public static function create(string $password): self
     {
         if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/', $password)) {
             throw new ValueObjectException('Password must contain between 8 and 12 characters including uppercase, lowercase, numbers and special characters');

@@ -32,6 +32,7 @@ class UserRepository implements UserRepositoryInterface
      * Get all users from database
      *
      * @return UserCollection
+     * @throws Psr\Http\Client\ClientExceptionInterface
      */
     public function getAll(): UserCollection
     {

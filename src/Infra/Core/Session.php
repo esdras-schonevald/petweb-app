@@ -6,19 +6,19 @@ namespace Petweb\Infra\Core;
 
 class Session
 {
-    function __construct()
+    public function __construct()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
     }
 
-    function isValid(): bool
+    public function isValid(): bool
     {
         return !empty($_SESSION['user']);
     }
 
-    function get(string $key)
+    public function get(string $key)
     {
         if (!isset($_SESSION[$key])) {
             return null;
@@ -27,22 +27,25 @@ class Session
         return unserialize($_SESSION[$key]);
     }
 
-    function set(string $key, mixed $value): void
+    public function set(string $key, mixed $value): void
     {
         $_SESSION[$key] = serialize($value);
     }
 
-    function getStatus(): int
+    public function getStatus(): int
     {
         return session_status();
     }
 
-    function getId()
+    /**
+     * @return false|string
+     */
+    public function getId(): string|false
     {
         return session_id();
     }
 
-    function destroy()
+    public function destroy(): bool
     {
         $params = session_get_cookie_params();
         setcookie(session_name(), '', 0, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));
@@ -51,7 +54,17 @@ class Session
         return session_write_close();
     }
 
-    function __call(string $method, array $args): mixed
+    /**
+     * Call a function.
+     *
+     * Used to create magical functions like 'getUser'.
+     *
+     * @param string $method
+     * @param array $args
+     * @return mixed
+     * @throws \BadMethodCallException
+     */
+    public function __call(string $method, array $args): mixed
     {
         if (method_exists($this, $method)) {
             return call_user_func([$this, $method], ...$args);

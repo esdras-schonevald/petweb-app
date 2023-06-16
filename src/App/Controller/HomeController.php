@@ -72,8 +72,8 @@ class HomeController extends Controller
             return $this->render('Home', [
                 'notifications' => [
                     new ErrorNotification(
-                        message: new Message('Usuário e senha inválidos!'),
-                        title: new Title('Ish man!')
+                        message: new Message('Ish man! Usuário e senha inválidos!'),
+                        title: new Title('GRRRRRR')
                     )
                 ]
             ]);

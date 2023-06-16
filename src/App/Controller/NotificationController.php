@@ -68,9 +68,9 @@ class NotificationController extends Controller
         $code   =   $request->get('code');
 
         [$title, $message] = match ($code) {
-            '401'   => [new Title('Sessão expirada'), new Message('Realize o login novamente')],
-            '404'   => [new Title('Rota não encontrada'), new Message('Verifique se o caminho digitado é valido')],
-            default => [new Title('Ish man!'), new Message('Algo de errado não está certo')]
+            '401'   => [new Title('GRRRRRRR'), new Message('Sessão expirada! Realize o login novamente')],
+            '404'   => [new Title('GRRRRRRR'), new Message('Rota não encontrada! Verifique se o caminho digitado é valido')],
+            default => [new Title('GRRRRRRR'), new Message('Ish man! Algo de errado não está certo')]
         };
 
         $notification = match ($type) {

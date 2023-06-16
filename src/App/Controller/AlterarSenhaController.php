@@ -71,8 +71,8 @@ class AlterarSenhaController extends Controller
         $model->changePassword($user, $oldPass, $newPass);
 
         $notification = new SuccessNotification(
-            new Message('Senha atualizada com sucesso'),
-            new Title('Yup!')
+            new Message('Yup! Senha atualizada com sucesso'),
+            new Title('AU-AU')
         );
 
         return $this->render('AlterarSenha', [

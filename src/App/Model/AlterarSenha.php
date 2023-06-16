@@ -12,6 +12,9 @@ use Petweb\Infra\Repository\UserRepository;
 
 class AlterarSenha
 {
+    /**
+     * @return void
+     */
     public function changePassword(User $user, Password $oldPass, Password $newPass)
     {
         if ($user->password != $oldPass) {

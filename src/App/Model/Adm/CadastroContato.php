@@ -6,7 +6,7 @@ namespace Petweb\App\Model\Adm;
 
 class CadastroContato
 {
-    public function create()
+    public function create(): void
     {
         // TODO - Auto generated content
         // FIXME - Transcript from javascript

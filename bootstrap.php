@@ -9,6 +9,20 @@ use Phprise\Routing\SimpleRouter;
 
 include_once __DIR__ . '/vendor/autoload.php';
 
+/**
+ * Bootstrap file.
+ * Load configurations and init router
+ *
+ * @author Esdras Schonevald <esdraschonevald@gmail.com>
+ * @copyright 2023 Petweb
+ * [
+ *              ADIEL ESDRAS SCHONEVALD TOLENTINO,
+ *              ROGÉRIO GONÇALVES RODRIGRES,
+ *              LETÍCIA SANTOS OLIVEIRA,
+ *              AMANDA DRAVANETE
+ * ]
+ */
+
 try {
     Dotenv::createUnsafeImmutable(__DIR__)->load();
     $config = RouterConfiguration::createFromAttributes(__DIR__ . '/src/App/Controller');

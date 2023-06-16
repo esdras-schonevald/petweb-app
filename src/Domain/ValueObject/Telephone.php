@@ -27,7 +27,7 @@ class Telephone implements \Stringable
         return $this->telephone;
     }
 
-    public function format()
+    public function format(): string|null
     {
         return preg_replace('/^([\d]{2})(9)?([\d]{4})([\d]{4})$/', '($1) $2 $3-$4', $this->telephone);
     }

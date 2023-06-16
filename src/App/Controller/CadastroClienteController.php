@@ -4,9 +4,22 @@ declare(strict_types=1);
 
 namespace Petweb\App\Controller;
 
-use Petweb\App\Model\Cadastro;
-use Petweb\Infra\Core\Controller;
 use Phprise\Routing\Route;
+use Petweb\App\Model\Cadastro;
+use Petweb\Domain\Entity\User;
+use Petweb\Infra\Core\Session;
+use Petweb\Infra\Core\Controller;
+use Petweb\Domain\ValueObject\CPF;
+use Petweb\Domain\ValueObject\Name;
+use Petweb\App\Model\CadastroCliente;
+use Petweb\Domain\Notification\SuccessNotification;
+use Petweb\Domain\Notification\ValueObject\Message;
+use Petweb\Domain\Notification\ValueObject\Title;
+use Petweb\Domain\ValueObject\Password;
+use Petweb\Domain\ValueObject\Telephone;
+use Petweb\Domain\ValueObject\ImageSource;
+use Petweb\Infra\Repository\UserRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Controls the actions on client registry page
@@ -25,27 +38,32 @@ class CadastroClienteController extends Controller
     #[Route('/cadastrocliente', ['GET'])]
     public function index(): void
     {
-        // $model = new Cadastro();
-        // $dados = $model->index();
         $this->render('CadastroCliente');
     }
 
     #[Route('/cadastrocliente/enviar', ['POST'])]
-    public function enviar($request): void
+    public function enviar(Request $request): void
     {
+        $model      =   new CadastroCliente();
+        $user       =   $model->save($request);
 
-        $name = $request->request->filter('name');
-        $rg = $request->request->filter('rg');
-        $cpf = $request->request->filter('cpf');
-        $senha = $request->request->filter('senha');
-        $fone = $request->request->filter('fone');
-        $email = $request->request->filter('email');
-        $address = $request->request->filter('address');
-        $bairro = $request->request->filter('bairro');
-        $cidade = $request->request->filter('cidade');
-        $estado = $request->request->filter('estado');
-        $cep = $request->request->filter('cep');
+        $session    =   new Session();
+        $session->setUser($user);
 
-        $this->render('CadastroCliente');
+        $notification   =   new SuccessNotification(
+            new Message('Yup! Usuário cadastrado com sucesso'),
+            new Title('AU-AU')
+        );
+
+        $request->request->filter('address');
+        $request->request->filter('bairro');
+        $request->request->filter('cidade');
+        $request->request->filter('estado');
+        $request->request->filter('cep');
+
+        $this->render('CadastroCliente', [
+            'notifications' =>  [$notification],
+            'user'          =>  $user
+        ]);
     }
 }
