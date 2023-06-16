@@ -24,6 +24,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CadastroPetController extends Controller
 {
+    /**
+     * This route access the form to register customer pet
+     *
+     * @return void
+     */
     #[Route('/cadastropet')]
     public function index(): void
     {
@@ -40,6 +45,12 @@ class CadastroPetController extends Controller
         $this->render('CadastrarPet', ['pets' => $dados, 'user' => $user]); #cadastrar past do diretorio
     }
 
+    /**
+     *  This route send the pet data
+     *
+     * @param Request $request
+     * @return void
+     */
     #[Route('/registrarpet', ['POST'])]
     public function cadastrarPet(Request $request): void
     {

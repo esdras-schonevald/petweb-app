@@ -35,12 +35,22 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CadastroClienteController extends Controller
 {
+    /**
+     *Access page for customer register 
+     * @return void
+     */
     #[Route('/cadastrocliente', ['GET'])]
     public function index(): void
     {
         $this->render('CadastroCliente');
     }
 
+
+/**
+ *Route send the  customer register
+ * @param [type] $request
+ * @return void
+ */
     #[Route('/cadastrocliente/enviar', ['POST'])]
     public function enviar(Request $request): void
     {
